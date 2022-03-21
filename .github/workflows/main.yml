@@ -35,6 +35,9 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
+      - name: Install Dependencies
+        run: npm install
+        
       - name: Encrption Source Code
         shell: cmd
         run: .\bat_scripts\test.bat
