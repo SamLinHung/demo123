@@ -37,4 +37,4 @@ jobs:
 
       - name: Encrption Source Code
         shell: cmd
-        run: cd
+        run: .\bat_scripts\test.bat
