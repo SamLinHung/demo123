@@ -16,7 +16,8 @@ del .\ib.py
 del .\ib.c
 del .\setup.py
 
+rd /s /q .\dojo\__pycache__
 rd /s /q .\build
-rd /s /q .\build
+rd /s /q .\%dirName%
 
 dir
