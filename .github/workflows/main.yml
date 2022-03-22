@@ -28,18 +28,9 @@ jobs:
     - name: Install Python package dependencies
       run: pip install cython wheel
 
-
     - name: Encrption Code
-      run: |
-           cd dojo
-           python setup.py build_ext --inplace
-           cd ..
-
-    - name: Move encryption file
       shell: cmd
-      run: |
-          xcopy .\dojo\build\lib.win-amd64-${{ matrix.python-version }}\dojo\ .\dojo\
-          del .\dojo\ib.py
+      run: encrypt.bat ${{ matrix.python-version }}
 
 
     - name: Build binary wheel
