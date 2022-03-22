@@ -12,4 +12,5 @@ cd ..
 xcopy .\%dirName%\ .
 del .\ib.py
 del .\ib.c
+dir
 cd ..
