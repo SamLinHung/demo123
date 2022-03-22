@@ -59,6 +59,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        mkdir pypi
 
     # - name: Create source dist
     #   run: python setup.py sdist
@@ -80,6 +81,10 @@ jobs:
         sudo -i
         ls -l
         ls -l dojo/*
+
+        cp dojo/__init__.py /pypi
+        
+        ls -l pypi
 
         rm /dojo/ib.py
         rm /dojo/setup.py
