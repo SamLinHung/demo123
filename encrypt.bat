@@ -4,7 +4,12 @@ set dirName=dojo
 cd %dirName%
 python setup.py build_ext --inplace
 dir
-xcopy .\build\lib.win-amd64-%python_version%\%dirName%\ .
+
+cd .\%dirName%\
+dir
+cd ..
+
+xcopy .\%dirName%\ .
 del .\ib.py
 del .\ib.c
 cd ..

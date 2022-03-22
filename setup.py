@@ -5,7 +5,7 @@ with open("readme.md", "r") as fh:
 
 setuptools.setup(
     name="dojotest",  
-    version="0.0.15",
+    version="0.0.16",
     author="HungYuanLin",
     author_email="slin@dojotechs.com",
     description="A automatic trading application of package",
