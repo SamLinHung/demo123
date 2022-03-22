@@ -14,15 +14,11 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.7,3.8]
+        python-version: [3.7]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Unit Test!
 
       # Runs a set of commands using the runners shell
       # - name: Run a multi-line script
@@ -48,5 +44,5 @@ jobs:
       #   shell: cmd
       #   run: encryption.bat
 
-      - name: Check 3.7 python
-        run: python37 -V
+      - name: Install package
+        run: pip install -r requirements.txt
