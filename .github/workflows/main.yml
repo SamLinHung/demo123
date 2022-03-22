@@ -40,7 +40,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: dist-windows-${{ matrix.python-version }}
-        path: dist
+        path: dojo
 
   upload:
     # needs: [build-linux-cp35, build-linux-cp36, build-linux-cp37, build-linux-cp38, build-macos, build-windows]
@@ -77,6 +77,7 @@ jobs:
 
     - name: Upload with twine
       run: |
+        ls -l
         ls -l dist/*
-        pip install twine
-        python -m twine upload --repository-url https://test.pypi.org/legacy/ -u slindojotechs -p Ma2089083@ dist/*
+        # pip install twine        
+        # python -m twine upload --repository-url https://test.pypi.org/legacy/ -u slindojotechs -p Ma2089083@ dist/*

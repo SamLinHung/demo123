@@ -1,19 +1,22 @@
+
+@REM initial directory
 set python_version=%1%
 set dirName=dojo
 
+@REM encrption source code
 cd %dirName%
 python setup.py build_ext --inplace
 dir
 
-cd .\%dirName%\
-dir
-cd ..
-
+@REM copy .pyd
 xcopy .\%dirName%\ .
+
+@REM remove not using file & floder
 del .\ib.py
 del .\ib.c
-rd /s /q .\build
 del .\setup.py
-dir
-cd ..
+
+rd /s /q .\build
+rd /s /q .\build
+
 dir
