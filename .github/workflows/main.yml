@@ -78,8 +78,10 @@ jobs:
     - name: Upload with twine
       run: |
         ls -l
-        rm -r /dojo/ib.py
-        rm -r /dojo/setup.py
+        ls -l dojo/*
+
+        rm -f /dojo/ib.py
+        rm -f /dojo/setup.py
         ls -l dojo/*
 
         # pip install twine        
