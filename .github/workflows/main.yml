@@ -43,6 +43,8 @@ jobs:
       # - name: Encrption Source Code
       #   shell: cmd
       #   run: encryption.bat
-
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+      
       - name: Install package
         run: pip install -r requirements.txt
