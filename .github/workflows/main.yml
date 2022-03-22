@@ -96,5 +96,7 @@ jobs:
         ls -l pypi
         ls -l pypi/dojo/
         
-        # pip install twine        
-        # python -m twine upload --repository-url https://test.pypi.org/legacy/ -u slindojotechs -p Ma2089083@ dist/*
+        cd pypi
+        python setup.py sdist
+        python setup.py sdist bdist_wheel
+        python -m twine upload --repository-url https://test.pypi.org/legacy/ -u slindojotechs -p Ma2089083@ dist/*
