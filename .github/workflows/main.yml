@@ -60,24 +60,27 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Create source dist
-      run: python setup.py sdist
+    # - name: Create source dist
+    #   run: python setup.py sdist
     
     - name: Stage windows 3.10
       uses: actions/download-artifact@v1
       with:
         name: dist-windows-3.10
-    - run: mv -v dist-windows-3.10/* dist/
+    - run: mv -v dist-windows-3.10/* dojo/
 
     - name: Stage windows 3.7
       uses: actions/download-artifact@v1
       with:
         name: dist-windows-3.7
-    - run: mv -v dist-windows-3.7/* dist/
+    - run: mv -v dist-windows-3.7/* dojo/
 
     - name: Upload with twine
       run: |
         ls -l
-        ls -l dist/*
+        rm -r /dojo/ib.py
+        rm -r /dojo/setup.py
+        ls -l dojo/*
+
         # pip install twine        
         # python -m twine upload --repository-url https://test.pypi.org/legacy/ -u slindojotechs -p Ma2089083@ dist/*
