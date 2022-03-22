@@ -32,11 +32,9 @@ jobs:
       shell: cmd
       run: encrypt.bat ${{ matrix.python-version }}
 
-
     - name: Build binary wheel
-      run: python setup.py bdist_wheel
-    
-
+      shell: cmd
+      run: bdist_wheel.bat
 
     - name: Archive dist artifacts
       uses: actions/upload-artifact@v1
