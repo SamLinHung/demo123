@@ -5,7 +5,7 @@ with open("readme.md", "r") as fh:
 
 setuptools.setup(
     name="dojotest",  
-    version="0.0.19",
+    version="0.0.20",
     author="HungYuanLin",
     author_email="slin@dojotechs.com",
     description="A automatic trading application of package",
@@ -18,4 +18,5 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
+    include_package_data=True
 )
