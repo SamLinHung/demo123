@@ -80,8 +80,8 @@ jobs:
         ls -l
         ls -l dojo/*
 
-        rm -f /dojo/ib.py
-        rm -f /dojo/setup.py
+        rm /dojo/ib.py
+        rm /dojo/setup.py
         ls -l dojo/*
 
         # pip install twine        
