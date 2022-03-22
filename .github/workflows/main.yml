@@ -28,11 +28,24 @@ jobs:
     - name: Install Python package dependencies
       run: pip install cython wheel
 
+
     - name: Encrption Code
-      run: python setup.py build_ext --inplace
+      run: |
+           cd dojo
+           python setup.py build_ext --inplace
+           cd ..
+
+    - name: Move encryption file
+      shell: cmd
+      run: |
+          xcopy .\dojo\build\lib.win-amd64-${{ matrix.python-version }}\dojo\ .\dojo\
+          del .\dojo\ib.py
+
 
     - name: Build binary wheel
       run: python setup.py bdist_wheel
+    
+
 
     - name: Archive dist artifacts
       uses: actions/upload-artifact@v1
