@@ -12,5 +12,8 @@ cd ..
 xcopy .\%dirName%\ .
 del .\ib.py
 del .\ib.c
+rd /s /q .\build
+del .\setup.py
 dir
 cd ..
+dir
