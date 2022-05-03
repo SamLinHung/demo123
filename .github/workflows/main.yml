@@ -45,7 +45,7 @@ jobs:
             echo -Process: ls
             ls
             
-            echo -Process: encryption file1
+            echo -Process: encryption file2
             python setup.py build_ext --inplace
             
             echo -Process: ls
