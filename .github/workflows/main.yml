@@ -46,7 +46,7 @@ jobs:
             ls
             
             echo -Process: encryption file
-            python setup.py build_ext --inplace
+            python setup.py build_clib
             
             echo -Process: ls
             ls
