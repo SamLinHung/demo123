@@ -30,8 +30,8 @@ jobs:
 
     - name: Encrption Code copy setup.py
       run: |
-            cp /encryption/setup.py /algodojo
-            cd /algodojo
+            cp ~/encryption/setup.py /algodojo
+            cd ~/algodojo
             ls
 
     # - name: Build binary wheel
