@@ -30,7 +30,8 @@ jobs:
 
     - name: Encrption Code copy setup.py
       run: |
-            ls
+            ls 
+            ls /encryption
             cp /encryption/setup.py /algodojo
             cd ~/algodojo
             ls
