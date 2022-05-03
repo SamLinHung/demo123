@@ -28,21 +28,27 @@ jobs:
     - name: Install packages
       run: python -m pip install -r requirements.txt
 
-    - name: Encrption Code-copy setup.py
+    - name: Encrption Code
       run: |
+            echo Process: ls
             ls 
+            
+            echo Process: ls encryption
             ls encryption
+            
+            echo Process: cp setup.py
             cp encryption/setup.py algodojo
-
-    - name: Encrption Code-cd algodojo ls
-      run: |
+            
+            echo Process: cd algodojo
             cd algodojo
+            
+            echo Process: ls
             ls
-
-    - name: Encrption Code-encrypt file
-      run: |
-            cd algodojo
+            
+            echo Process: encryption file
             python setup.py build_ext --inplace
+            
+            echo Process: ls
             ls
     # - name: Build binary wheel
     #   shell: cmd
