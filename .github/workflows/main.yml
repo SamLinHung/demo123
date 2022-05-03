@@ -45,7 +45,7 @@ jobs:
             echo -Process: ls
             ls
             
-            echo -Process: encryption file
+            echo -Process: encryption file1
             python setup install
             
             echo -Process: ls
