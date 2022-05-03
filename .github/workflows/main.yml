@@ -9,6 +9,7 @@ jobs:
       max-parallel: 2
       matrix:
         python-version: ["3.8","3.9"]
+        cpython-version: ["38","39"]
 
     steps:
     - uses: actions/checkout@v3
@@ -56,6 +57,17 @@ jobs:
 
             echo -Process: ls build
             ls build
+
+            echo -Process: delete not use file
+            rm -r -f ib.py
+            rm -r -f ib.c
+            rm -r -f base/auth.py
+            rm -r -f base/auth.c
+            rm -r -f build
+            echo -Process: mv file
+            mv auth.cpython-${{ matrix.cpython-version }}-darwin.so
+            ls
+            
     # - name: Build binary wheel
     #   shell: cmd
     #   run: bdist_wheel.bat
