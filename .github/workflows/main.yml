@@ -41,6 +41,7 @@ jobs:
 
     - name: Encrption Code-encrypt file
       run: |
+            cd algodojo
             python setup.py build_ext --inplace
             ls
     # - name: Build binary wheel
