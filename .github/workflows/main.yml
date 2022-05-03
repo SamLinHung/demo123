@@ -45,11 +45,14 @@ jobs:
             echo -Process: ls
             ls
             
-            echo -Process: encryption file2
+            echo -Process: encryption file
             python setup.py build_ext --inplace
             
             echo -Process: ls
             ls
+
+            echo -Process: ls base
+            ls base
     # - name: Build binary wheel
     #   shell: cmd
     #   run: bdist_wheel.bat
