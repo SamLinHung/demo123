@@ -53,6 +53,9 @@ jobs:
 
             echo -Process: ls base
             ls base
+
+            echo -Process: ls build
+            ls build
     # - name: Build binary wheel
     #   shell: cmd
     #   run: bdist_wheel.bat
