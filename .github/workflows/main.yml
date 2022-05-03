@@ -30,25 +30,25 @@ jobs:
 
     - name: Encrption Code
       run: |
-            echo Process: ls
+            echo -Process: ls
             ls 
             
-            echo Process: ls encryption
+            echo -Process: ls encryption
             ls encryption
             
-            echo Process: cp setup.py
+            echo -Process: cp setup.py
             cp encryption/setup.py algodojo
             
-            echo Process: cd algodojo
+            echo -Process: cd algodojo
             cd algodojo
             
-            echo Process: ls
+            echo -Process: ls
             ls
             
-            echo Process: encryption file
+            echo -Process: encryption file
             python setup.py build_ext --inplace
             
-            echo Process: ls
+            echo -Process: ls
             ls
     # - name: Build binary wheel
     #   shell: cmd
