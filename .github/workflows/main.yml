@@ -28,15 +28,9 @@ jobs:
     - name: Install packages
       run: python -m pip install -r requirements.txt
 
-    # - name: Unittest IB
-    #   run: |
-    #       cd unittest  
-    #       python -m unittest test_ib.py
-    #       cd ..
-
-    # - name: Encrption Code
-    #   shell: cmd
-    #   run: encryption.bat ${{ matrix.python-version }}
+    - name: Encrption Code
+      shell: cmd
+      run: encryption.bat ${{ matrix.python-version }}
 
     # - name: Build binary wheel
     #   shell: cmd
