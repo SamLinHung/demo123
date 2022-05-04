@@ -65,7 +65,11 @@ jobs:
             rm -r -f build
             echo -Process: mv file
             ls
-            
+    - name: Archive dist artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: dist-macos-${{ matrix.python-version }}
+        path: algodojo     
     # - name: Build binary wheel
     #   shell: cmd
     #   run: bdist_wheel.bat
