@@ -28,7 +28,7 @@ jobs:
     - name: Build the package
       run: python -m build
 
-    - ame: Encrypt source code
+    - name: Encrypt source code
       run: pyarmor pack -e " --onefile" -x " --exclude dojotest/tests" src/dojotestn
 
     - name: Archive dist artifacts
