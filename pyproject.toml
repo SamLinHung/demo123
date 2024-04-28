@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=40.6.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dojotest"
+version = "0.2.8"
+description = "A automatic trading application of package"
+authors = [{name = "dojotest team", email = "slin@dojotechs.com"}]
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["quant", "quantitative", "investment", "trading", "algotrading"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "ibapi",
+    "python-socketio",
+    "requests",
+    "websocket-client",
+    "pandas",
+    "quantstats",
+    "matplotlib"
+]

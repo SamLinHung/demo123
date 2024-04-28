@@ -1,9 +1,9 @@
 ibapi
-
 cython
-Sphinx
-
 twine
 wheel
 setuptools
-
+python-dateutil
+python-socketio
+pandas
+quantstats

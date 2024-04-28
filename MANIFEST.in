@@ -1,1 +1,1 @@
-recursive-include dojo *.pyd
+recursive-include dojotest *.pyd 

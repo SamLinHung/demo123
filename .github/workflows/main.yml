@@ -3,12 +3,13 @@ name: release
 on: [push]
 
 jobs:
-  build-mac:
-    runs-on: macos-latest
+  build-windows:
+    runs-on: windows-latest
     strategy:
       max-parallel: 2
       matrix:
-        python-version: ["3.8","3.9"]
+        # python-version: ["3.6","3.7","3.8","3.9","3.10","3.11"]
+        python-version: ["3.11"]
 
     steps:
     - uses: actions/checkout@v3
@@ -22,60 +23,55 @@ jobs:
     - name: Upgrade pip
       run: python -m pip install --upgrade pip
 
-    - name: Install setuptools wheel
-      run: python -m pip install --upgrade pip setuptools wheel
-
-    - name: Install packages
-      run: python -m pip install -r requirements.txt
+    - name: Install build tools
+      run: python -m pip install setuptools wheel build twine
 
     - name: Encrption Code
-      run: |
-            echo -Process: ls
-            ls 
-            
-            echo -Process: ls encryption
-            ls encryption
-            
-            echo -Process: cp setup.py
-            cp encryption/setup.py algodojo
-            
-            echo -Process: cd algodojo
-            cd algodojo
-            
-            echo -Process: ls
-            ls
-            
-            echo -Process: encryption file
-            python setup.py build_ext --inplace
-            
-            echo -Process: ls
-            ls
+      shell: cmd
+      run: encryption.bat ${{ matrix.python-version }}
 
-            echo -Process: ls base
-            ls base
-
-            echo -Process: ls build
-            ls build
-
-            echo -Process: delete not use file
-            rm -r -f ib.py
-            rm -r -f ib.c
-            rm -r -f base/auth.py
-            rm -r -f base/auth.c
-            rm -r -f build
-            echo -Process: mv file
-            ls
     - name: Archive dist artifacts
       uses: actions/upload-artifact@v1
       with:
-        name: dist-macos-${{ matrix.python-version }}
-        path: algodojo     
-    # - name: Build binary wheel
-    #   shell: cmd
-    #   run: bdist_wheel.bat
+        name: dist-windows-${{ matrix.python-version }}
+        path: dojotest
 
-    # - name: Archive dist artifacts
-    #   uses: actions/upload-artifact@v1
-    #   with:
-    #     name: dist-windows-${{ matrix.python-version }}
-    #     path: algodojo
+  upload:
+    # needs: [build-linux-cp35, build-linux-cp36, build-linux-cp37, build-linux-cp38, build-macos, build-windows]
+    needs: [build-windows]
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+        cache: 'pip' # caching pip dependencies
+  
+    - name: Upgrade pip
+      run: python -m pip install --upgrade pip
+
+    - name: Install build tools
+      run: python -m pip install setuptools wheel build twine
+
+    - name: Build the package
+      run: python -m build
+    
+    - name: ls -l
+      run: ls -l
+
+    - name: ls -l src/
+      run: ls -l src/
+
+    - name: ls -l src/dojotest/
+      run: ls -l src/dojotest/
+      
+    - name: ls -l src/dojotest/base/
+      run: ls -l src/dojotest/base/
+
+    - name: Upload with twine
+      run: |
+        python -m twine upload --repository testpypi dist/*
+        python -m twine upload dist/*

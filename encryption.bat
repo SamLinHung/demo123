@@ -5,16 +5,18 @@ setlocal enabledelayedexpansion
 @REM initial directory
 set python_version=%1%
 set python_version=%python_version:.=%
-set dirName=algodojo
+set dirName=dojotest
 set dirName_encrypt_setting=encryption
 set dirName_build=\build\lib.win-amd64-cpython
 
 @REM initial file & path
 set fileName[0]=ib
 set fileName[1]=auth
+set fileName[2]=report
 
 set filePath[0]=
 set filePath[1]=\base
+set filePath[2]=\base
 
 
 
