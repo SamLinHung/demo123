@@ -72,6 +72,8 @@ jobs:
       run: ls -l src/dojotest/base/
 
     - name: Upload with twine
+      env:
+        TWINE_USERNAME: ${{ secrets.TESTPYPI_USERNAME }}
+        TWINE_PASSWORD: ${{ secrets.TESTPYPI_PASSWORD }}
       run: |
         python -m twine upload --repository testpypi dist/*
-        python -m twine upload dist/*
