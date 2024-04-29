@@ -30,7 +30,7 @@ jobs:
     - name: Encrypt source code and build
       run: |
         mkdir dist
-        cp src/dojotest/* dist/
+        cp -r src/dojotest/* dist/
         pyarmor gen -O dist -r -i src/dojotest
 
     - name: Archive dist artifacts
