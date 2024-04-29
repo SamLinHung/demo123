@@ -31,7 +31,7 @@ jobs:
       run: |
         mkdir dist
         cp src/dojotest/* dist/
-        pyarmor gen -O dist -i src/dojotest
+        pyarmor gen -O dist -r -i src/dojotest
 
     - name: Archive dist artifacts
       uses: actions/upload-artifact@v1
