@@ -24,16 +24,15 @@ jobs:
 
     - name: Install build tools and PyArmor
       run: |
-            python -m pip install setuptools wheel build twine pyarmor
-            python -m pip install -U pyarmor
+            python -m pip install setuptools wheel build twine 
+            python -m pip install -U cython
 
-    - name: Encrypt source code and build
+    - name: Compile Python code to C with Cython
       run: |
-        # mkdir dist
-        # cp -r src/dojotest/* dist/
-        # pyarmor gen -O dist -r -i src/dojotest
-        pyarmor pack -e " --exclude tests" -x " --onefile" src/dojotest
+            cython src/dojotest/*.py --cplus
 
+    - name: Build the package
+      run: python -m build
 
     - name: Archive dist artifacts
       uses: actions/upload-artifact@v1
