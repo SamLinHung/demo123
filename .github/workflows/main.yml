@@ -23,7 +23,9 @@ jobs:
       run: python -m pip install --upgrade pip
 
     - name: Install build tools and PyArmor
-      run: python -m pip install setuptools wheel build twine pyarmor
+      run: |
+            python -m pip install setuptools wheel build twine pyarmor
+            python -m pip install -U pyarmor
 
     - name: Encrypt source code and build
       run: |
