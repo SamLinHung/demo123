@@ -29,9 +29,11 @@ jobs:
 
     - name: Encrypt source code and build
       run: |
-        mkdir dist
-        cp -r src/dojotest/* dist/
-        pyarmor gen -O dist -r -i src/dojotest
+        # mkdir dist
+        # cp -r src/dojotest/* dist/
+        # pyarmor gen -O dist -r -i src/dojotest
+        pyarmor pack -e " --exclude tests" -x " --onefile" src/dojotest
+
 
     - name: Archive dist artifacts
       uses: actions/upload-artifact@v1
